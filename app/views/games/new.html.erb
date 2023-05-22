@@ -1,0 +1,16 @@
+<div class="container">
+  <h3>Letters:</h3>
+
+  <% @letters.each do |letter| %>
+    <%= letter %>
+  <% end %>
+
+  <p class="mt-4"><strong>What is the longest word you can find?</strong></p>
+
+  <form action="/score" data-turbo="false" method="post" class="mt-2">
+    <input type="text" name="answer" class="">
+    <input type="submit" value="Submit!" class="">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+  </form>
+</div>
